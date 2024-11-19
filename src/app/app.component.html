@@ -1,34 +1,63 @@
 <div class="container">
   <div class="container__logos">
-    <div class="container__item" *ngFor="let logo of logos">
-      <img [src]="logo.src" [alt]="logo.alt" class="container__item__logo" />
-      <a
-        [href]="logo.link"
-        class="container__item__link"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        {{ logo.text }}
-      </a>
+    <div
+      class="flip-card"
+      *ngFor="let logo of logos; let i = index"
+      [ngClass]="{ flipped: flippedIndex === i }"
+      (click)="toggleFlip(i)"
+    >
+      <div class="flip-card__inner">
+        <div class="flip-card__front">
+          <img
+            [src]="logo.src"
+            [alt]="logo.alt"
+            class="container__item__logo"
+          />
+          <a
+            [href]="logo.link"
+            class="container__item__link"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            {{ logo.text }}
+          </a>
+        </div>
+        <div class="flip-card__back">
+          <p class="flip-card__back__text">{{ logo.description }}</p>
+        </div>
+      </div>
     </div>
   </div>
 </div>
+
 <div class="container_mob">
   <div class="container_mob__logos">
-    <div class="container_mob__item" *ngFor="let logo of logos">
-      <img
-        [src]="logo.src"
-        [alt]="logo.alt"
-        class="container_mob__item__logo"
-      />
-      <a
-        [href]="logo.link"
-        class="container_mob__item__link"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        {{ logo.text }}
-      </a>
+    <div
+      class="flip-card"
+      *ngFor="let logo of logos; let i = index"
+      [ngClass]="{ flipped: flippedIndex === i }"
+      (click)="toggleFlip(i)"
+    >
+      <div class="flip-card__inner">
+        <div class="flip-card__front">
+          <img
+            [src]="logo.src"
+            [alt]="logo.alt"
+            class="container_mob__item__logo"
+          />
+          <a
+            [href]="logo.link"
+            class="container_mob__item__link"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            {{ logo.text }}
+          </a>
+        </div>
+        <div class="flip-card__back">
+          <p class="flip-card__back__text">{{ logo.description }}</p>
+        </div>
+      </div>
     </div>
   </div>
 </div>
